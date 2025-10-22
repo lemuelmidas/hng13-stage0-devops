@@ -26,7 +26,7 @@ def home():
             </style>
         </head>
         <body>
-            <h1>Welcome to DevOps Stage 0 - Emmanuel Lemuel / @EmmanuelLemuel</h1>
+            <h1>Welcome to DevOps Stage 0 - Emmanuel Justine / @kiev</h1>
             <p>Successfully deployed on <strong>Localhost (Ngrok Tunnel)</strong></p>
             <p>Deployed: {date.today().strftime('%B %d, %Y')}</p>
         </body>
