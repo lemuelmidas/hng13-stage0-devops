@@ -1,37 +1,17 @@
-from flask import Flask
+from flask import Flask, render_template
 from datetime import date
+import os
 
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return f"""
-    <html>
-        <head>
-            <title>DevOps Stage 0</title>
-            <style>
-                body {{
-                    font-family: Arial, sans-serif;
-                    text-align: center;
-                    margin-top: 100px;
-                    background-color: #f8f9fa;
-                }}
-                h1 {{
-                    color: #007BFF;
-                }}
-                p {{
-                    font-size: 18px;
-                    color: #333;
-                }}
-            </style>
-        </head>
-        <body>
-            <h1>Welcome to DevOps Stage 0 - Emmanuel Justine / @kiev</h1>
-            <p>Successfully deployed on <strong>Localhost (Ngrok Tunnel)</strong></p>
-            <p>Deployed: {date.today().strftime('%B %d, %Y')}</p>
-        </body>
-    </html>
-    """
+    return render_template('index.html',
+                           name="Emmanuel Lemuel",
+                           handle="@kiev",
+                           platform="Railway",
+                           deployed_date=date.today().strftime('%B %d, %Y'))
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
